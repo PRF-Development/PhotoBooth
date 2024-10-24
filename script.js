@@ -87,3 +87,32 @@ async function loadTransformerModel() {
   return transformNet;
 }
 loadTransformerModel();
+
+async function startStyling() {
+  await tf.nextFrame();
+  console.log("Generating 100D style representation");
+  await tf.nextFrame();
+  let bottleneck = await tf.tidy(() => {
+    return styleNet.predict(
+      tf.browser.fromPixels(styleImg).toFloat().div(tf.scalar(255)).expandDims()
+    );
+  });
+  console.log("Stylizing image...");
+  await tf.nextFrame();
+  stylized = await tf.tidy(() => {
+    return transformNet
+      .predict([
+        tf.browser
+          .fromPixels(contentImg)
+          .toFloat()
+          .div(tf.scalar(255))
+          .expandDims(),
+        bottleneck,
+      ])
+      .squeeze();
+  });
+  console.log("Done stylizing image.");
+  await tf.browser.toPixels(stylized, stylizedImg);
+  //   bottleneck.dispose(); // keep this around
+  stylized.dispose();
+}

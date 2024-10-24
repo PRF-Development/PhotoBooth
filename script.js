@@ -45,7 +45,8 @@ takephoto.addEventListener("click", async () => {
   stylizedImg.style.height = height + "px";
   const context = canvas.getContext("2d");
   context.drawImage(video, 0, 0, width, height);
-  data = canvas.toDataURL("image/png");
+  const data = await canvas.toDataURL("image/png");
+  await contentImg.setAttribute("src", data);
   await startStyling();
   takephoto.disabled = false;
 });
@@ -68,7 +69,6 @@ function clearphoto() {
   const context = canvas.getContext("2d");
   context.fillStyle = "#aaa";
   context.fillRect(0, 0, canvas.width, canvas.height);
-  const data = canvas.toDataURL("image/png");
 }
 
 clearphoto();

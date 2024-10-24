@@ -2,7 +2,7 @@ let canvas = document.getElementById("canvas");
 let startcamera = document.getElementById("startcamera");
 let takephoto = document.getElementById("takephoto");
 let video = document.getElementById("video");
-let photo = document.getElementById("photo");
+let data = null;
 video.muted = true;
 
 startcamera.addEventListener("click", () => {
@@ -26,24 +26,18 @@ takephoto.addEventListener("click", () => {
   console.log(height);
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
-  photo.setAttribute("width", width);
-  photo.setAttribute("height", height);
   const context = canvas.getContext("2d");
   context.drawImage(video, 0, 0, width, height);
   const data = canvas.toDataURL("image/png");
-  photo.setAttribute("src", data);
 });
 
 function clearphoto() {
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
-  photo.setAttribute("width", width);
-  photo.setAttribute("height", height);
   const context = canvas.getContext("2d");
   context.fillStyle = "#fff";
   context.fillRect(0, 0, canvas.width, canvas.height);
   const data = canvas.toDataURL("image/png");
-  photo.setAttribute("src", data);
 }
 
 clearphoto();

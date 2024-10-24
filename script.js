@@ -78,3 +78,12 @@ async function loadStyleModel() {
   return styleNet;
 }
 loadStyleModel();
+
+var transformNet = null;
+async function loadTransformerModel() {
+  if (!transformNet) {
+    transformNet = await tf.loadGraphModel("transformer_model_js/model.json");
+  }
+  return transformNet;
+}
+loadTransformerModel();

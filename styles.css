@@ -1,4 +1,7 @@
 video {
-    width: 512px;
     object-fit: cover;
+}
+
+#canvas{
+    display: none;
 }

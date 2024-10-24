@@ -10,17 +10,16 @@
 
 <body>
     <h1>Photo Booth AI</h1>
-
-    <div class="camera">
-        <video id="video" alt="Video stream not available."></video>
+    <div class="controls">
+        <div class="subcontrols">
+            <video id="video" alt="Video stream not available."></video>
+            <button id="startcamera">Open camera</button>
+        </div>
         <br>
-        <button id="startcamera">Open camera</button>
-    </div>
-    <br>
-    <div class="output">
-        <canvas id="canvas"></canvas>
-        <br>
-        <button id="takephoto">Take photo</button>
+        <div class="subcontrols">
+            <canvas id="canvas"></canvas>
+            <button id="takephoto">Take photo</button>
+        </div>
     </div>
 </body>
 

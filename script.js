@@ -2,6 +2,11 @@ let canvas = document.getElementById("canvas");
 let startcamera = document.getElementById("startcamera");
 let takephoto = document.getElementById("takephoto");
 let video = document.getElementById("video");
+
+var contentImg = document.getElementById("content-img");
+var styleImg = document.getElementById("style-img");
+var stylizedImg = document.getElementById("stylized-img");
+
 let data = null;
 video.muted = true;
 

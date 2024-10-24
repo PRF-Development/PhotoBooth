@@ -28,3 +28,9 @@ canvas {
     width: 300px;
     height: 150px;
 }
+#content-img{
+    display: none;
+}
+#style-img{
+    display: none;
+}

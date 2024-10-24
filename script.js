@@ -34,11 +34,14 @@ takephoto.addEventListener("click", () => {
     height = 150;
     width = 300;
   }
-  console.log(height);
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
   canvas.style.width = width + "px";
   canvas.style.height = height + "px";
+  stylizedImg.setAttribute("width", width);
+  stylizedImg.setAttribute("height", height);
+  stylizedImg.style.width = width + "px";
+  stylizedImg.style.height = height + "px";
   const context = canvas.getContext("2d");
   context.drawImage(video, 0, 0, width, height);
   data = canvas.toDataURL("image/png");
@@ -55,6 +58,10 @@ function clearphoto() {
   canvas.setAttribute("height", height);
   canvas.style.width = width + "px";
   canvas.style.height = height + "px";
+  stylizedImg.setAttribute("width", width);
+  stylizedImg.setAttribute("height", height);
+  stylizedImg.style.width = width + "px";
+  stylizedImg.style.height = height + "px";
   const context = canvas.getContext("2d");
   context.fillStyle = "#aaa";
   context.fillRect(0, 0, canvas.width, canvas.height);

@@ -69,3 +69,12 @@ function clearphoto() {
 }
 
 clearphoto();
+
+var styleNet = null;
+async function loadStyleModel() {
+  if (!styleNet) {
+    styleNet = await tf.loadGraphModel("style_model_js/model.json");
+  }
+  return styleNet;
+}
+loadStyleModel();

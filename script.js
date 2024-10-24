@@ -27,7 +27,8 @@ startcamera.addEventListener("click", () => {
     });
 });
 
-takephoto.addEventListener("click", () => {
+takephoto.addEventListener("click", async () => {
+  takephoto.disabled = true;
   var height = video.videoHeight;
   var width = video.videoWidth;
   if (height === 0 || width === 0) {
@@ -45,6 +46,8 @@ takephoto.addEventListener("click", () => {
   const context = canvas.getContext("2d");
   context.drawImage(video, 0, 0, width, height);
   data = canvas.toDataURL("image/png");
+  await startStyling();
+  takephoto.disabled = false;
 });
 
 function clearphoto() {

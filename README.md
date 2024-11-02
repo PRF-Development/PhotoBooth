@@ -1,5 +1,8 @@
 # Photo Booth AI
 
+The project is based on "[arbitrary-image-stylization](https://github.com/reiinakano/arbitrary-image-stylization-tfjs/)".
+The project is built using TensorFlow.js.
+
 ## How to run the project locally
 
 1. Clone the repository

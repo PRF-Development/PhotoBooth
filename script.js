@@ -1,4 +1,5 @@
 let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
 let startcamera = document.getElementById("startcamera");
 let takephoto = document.getElementById("takephoto");
 let video = document.getElementById("video");
@@ -29,6 +30,7 @@ function openCamera() {
 }
 
 window.onload = function () {
+  clearphoto();
   openCamera();
   load_style_image("style_images/bricks.jpg");
   startstyle.disabled = true;
@@ -44,16 +46,17 @@ takephoto.addEventListener("click", async () => {
     height = 150;
     width = 300;
   }
-  canvas.setAttribute("width", width);
-  canvas.setAttribute("height", height);
+  var resize_width = Math.min(500, width);
+  var resize_height = Math.round((resize_width * height) / width);
+  canvas.setAttribute("width", resize_width);
+  canvas.setAttribute("height", resize_height);
   canvas.style.width = width + "px";
   canvas.style.height = height + "px";
-  stylizedImg.setAttribute("width", width);
-  stylizedImg.setAttribute("height", height);
+  stylizedImg.setAttribute("width", resize_width);
+  stylizedImg.setAttribute("height", resize_height);
   stylizedImg.style.width = width + "px";
   stylizedImg.style.height = height + "px";
-  const context = canvas.getContext("2d");
-  context.drawImage(video, 0, 0, width, height);
+  context.drawImage(video, 0, 0, resize_width, resize_height);
   const data = await canvas.toDataURL("image/png");
   await contentImg.setAttribute("src", data);
   takephoto.disabled = false;
@@ -87,8 +90,6 @@ function clearphoto() {
   context.fillStyle = "#aaa";
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
-
-clearphoto();
 
 var styleNet = null;
 async function loadStyleModel() {

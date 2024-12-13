@@ -32,6 +32,7 @@ window.onload = function () {
   openCamera();
   load_style_image("style_images/bricks.jpg");
   startstyle.disabled = true;
+  document.getElementById("bricks").click();
 };
 startcamera.addEventListener("click", openCamera);
 

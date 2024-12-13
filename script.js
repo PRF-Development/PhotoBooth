@@ -55,8 +55,8 @@ takephoto.addEventListener("click", async () => {
   var resize_width = Math.min(500, width);
   var resize_height = Math.round((resize_width * height) / width);
   if (MAX_TEXTURE_SIZE < 16000) {
-    resize_width = Math.floor(resize_width / 2);
-    resize_height = Math.floor(resize_height / 2);
+    resize_width = Math.min(300, width);
+    resize_height = Math.round((resize_width * height) / width);
   }
   canvas.setAttribute("width", resize_width);
   canvas.setAttribute("height", resize_height);

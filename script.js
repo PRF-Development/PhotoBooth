@@ -40,7 +40,7 @@ window.onload = function () {
   var canvas1 = document.createElement("canvas");
   var gl = canvas1.getContext("webgl");
   MAX_TEXTURE_SIZE = gl.getParameter(gl.MAX_TEXTURE_SIZE);
-  console.log("MAX_TEXTURE_SIZE: ", MAX_TEXTURE_SIZE);
+  console.log("MAX_TEXTURE_SIZE:", MAX_TEXTURE_SIZE);
 };
 startcamera.addEventListener("click", openCamera);
 
@@ -55,8 +55,8 @@ takephoto.addEventListener("click", async () => {
   var resize_width = Math.min(500, width);
   var resize_height = Math.round((resize_width * height) / width);
   if (MAX_TEXTURE_SIZE < 16000) {
-    resize_width = Math.floor(resize_width / 4);
-    resize_height = Math.floor(resize_height / 4);
+    resize_width = Math.floor(resize_width / 2);
+    resize_height = Math.floor(resize_height / 2);
   }
   canvas.setAttribute("width", resize_width);
   canvas.setAttribute("height", resize_height);

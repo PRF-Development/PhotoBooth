@@ -21,4 +21,12 @@ canvas {
 }
 #style-img{
     margin: 5px;
+    width: 300px;
+}
+
+#style-radio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

@@ -12,21 +12,25 @@
 
 <body>
     <h1>Photo Booth AI</h1>
-    <div class="controls">
-        <div class="subcontrols">
-            <video id="video" alt="Video stream not available."></video>
-            <button id="startcamera">Open camera</button>
-        </div>
-        <br>
-        <div class="subcontrols">
-            <canvas id="canvas"></canvas>
-            <button id="takephoto">Take photo</button>
-        </div>
-        <img id="content-img" src="test.png">
-        <img id="style-img" src="style_images/zigzag.jpg">
+    <button id="startcamera">Open camera</button>
+    <video id="video" alt="Video stream not available."></video>
+    <button id="takephoto">Take photo</button>
+    <canvas id="canvas"></canvas>
+    <img id="content-img" src="test.png">
+    <div>
+        <input type="radio" class="load" name="style" value="bricks.jpg" checked />
+        <label for="huey">Bricks</label>
     </div>
-
-    <!-- <img id="stylized-img"> -->
+    <div>
+        <input type="radio" class="load" name="style" value="clouds.jpg" />
+        <label for="dewey">Clouds</label>
+    </div>
+    <div>
+        <input type="radio" class="load" name="style" value="seaport.jpg" />
+        <label for="louie">Seaport</label>
+    </div>
+    <img id="style-img" src="style_images/zigzag.jpg">
+    <button id="startstyle">Start style transfer</button>
     <canvas id="stylized-img"></canvas>
 
 </body>

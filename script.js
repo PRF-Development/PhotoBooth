@@ -10,7 +10,7 @@ var stylizedImg = document.getElementById("stylized-img");
 let data = null;
 video.muted = true;
 
-startcamera.addEventListener("click", () => {
+function openCamera() {
   // Accessing the user camera and video.
   navigator.mediaDevices
     .getUserMedia({ video: true, audio: false })
@@ -25,7 +25,10 @@ startcamera.addEventListener("click", () => {
     .catch((err) => {
       console.error(`An error occurred: ${err}`);
     });
-});
+}
+
+window.onload = openCamera;
+startcamera.addEventListener("click", openCamera);
 
 takephoto.addEventListener("click", async () => {
   takephoto.disabled = true;

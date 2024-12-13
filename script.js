@@ -9,6 +9,8 @@ var contentImg = document.getElementById("content-img");
 var styleImg = document.getElementById("style-img");
 var stylizedImg = document.getElementById("stylized-img");
 
+var MAX_TEXTURE_SIZE;
+
 let data = null;
 video.muted = true;
 
@@ -35,6 +37,10 @@ window.onload = function () {
   load_style_image("style_images/bricks.jpg");
   startstyle.disabled = true;
   document.getElementById("bricks").click();
+  var canvas1 = document.createElement("canvas");
+  var gl = canvas1.getContext("webgl");
+  MAX_TEXTURE_SIZE = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+  console.log("MAX_TEXTURE_SIZE: ", MAX_TEXTURE_SIZE);
 };
 startcamera.addEventListener("click", openCamera);
 
@@ -48,6 +54,10 @@ takephoto.addEventListener("click", async () => {
   }
   var resize_width = Math.min(500, width);
   var resize_height = Math.round((resize_width * height) / width);
+  if (MAX_TEXTURE_SIZE < 16000) {
+    resize_width = Math.floor(resize_width / 4);
+    resize_height = Math.floor(resize_height / 4);
+  }
   canvas.setAttribute("width", resize_width);
   canvas.setAttribute("height", resize_height);
   canvas.style.width = width + "px";

@@ -28,7 +28,11 @@ function openCamera() {
     });
 }
 
-window.onload = openCamera;
+window.onload = function () {
+  openCamera();
+  load_style_image("style_images/bricks.jpg");
+  startstyle.disabled = true;
+};
 startcamera.addEventListener("click", openCamera);
 
 takephoto.addEventListener("click", async () => {
@@ -52,6 +56,7 @@ takephoto.addEventListener("click", async () => {
   const data = await canvas.toDataURL("image/png");
   await contentImg.setAttribute("src", data);
   takephoto.disabled = false;
+  startstyle.disabled = false;
 });
 
 startstyle.addEventListener("click", async () => {

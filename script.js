@@ -2,6 +2,7 @@ let canvas = document.getElementById("canvas");
 let startcamera = document.getElementById("startcamera");
 let takephoto = document.getElementById("takephoto");
 let video = document.getElementById("video");
+let startstyle = document.getElementById("startstyle");
 
 var contentImg = document.getElementById("content-img");
 var styleImg = document.getElementById("style-img");
@@ -50,8 +51,15 @@ takephoto.addEventListener("click", async () => {
   context.drawImage(video, 0, 0, width, height);
   const data = await canvas.toDataURL("image/png");
   await contentImg.setAttribute("src", data);
-  await startStyling();
   takephoto.disabled = false;
+});
+
+startstyle.addEventListener("click", async () => {
+  startstyle.disabled = true;
+  const data = await styleImg.getAttribute("src");
+  await styleImg.setAttribute("src", data);
+  await startStyling();
+  startstyle.disabled = false;
 });
 
 function clearphoto() {

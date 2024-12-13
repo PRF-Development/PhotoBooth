@@ -16,20 +16,47 @@
     <video id="video" alt="Video stream not available."></video>
     <button id="takephoto">Take photo</button>
     <canvas id="canvas"></canvas>
-    <img id="content-img" src="test.png">
-    <div>
-        <input type="radio" class="load" name="style" value="bricks.jpg" checked />
-        <label for="huey">Bricks</label>
+    <img id="content-img">
+    <div id="style-radio">
+        <div>
+            <input id="bricks" type="radio" name="style" onclick="load_style_image('style_images/bricks.jpg')"
+                checked />
+            <label for="bricks">Bricks</label>
+        </div>
+        <div>
+            <input id="clouds" type="radio" name="style" onclick="load_style_image('style_images/clouds.jpg')" />
+            <label for="clouds">Red clouds</label>
+        </div>
+        <div>
+            <input id="seaport" type="radio" name="style" onclick="load_style_image('style_images/seaport.jpg')" />
+            <label for="seaport">Sketch</label>
+        </div>
+        <div>
+            <input id="lines" type="radio" name="style" onclick="load_style_image('style_images/lines.jpg')" />
+            <label for="lines">Lines</label>
+        </div>
+        <div>
+            <input id="zigzag" type="radio" name="style" onclick="load_style_image('style_images/zigzag.jpg')" />
+            <label for="zigzag">Zigzag</label>
+        </div>
+        <div>
+            <input id="stripes" type="radio" name="style" onclick="load_style_image('style_images/stripes.jpg')" />
+            <label for="stripes">Stripes</label>
+        </div>
+        <div>
+            <input id="painting" type="radio" name="style" onclick="load_style_image('style_images/painting.jpg')" />
+            <label for="painting">Painting</label>
+        </div>
+        <div>
+            <input id="udnie" type="radio" name="style" onclick="load_style_image('style_images/udnie.jpg')" />
+            <label for="udnie">Udnie</label>
+        </div>
+        <div>
+            <input id="grass" type="radio" name="style" onclick="load_style_image('style_images/grass.jpg')" />
+            <label for="grass">Grass</label>
+        </div>
     </div>
-    <div>
-        <input type="radio" class="load" name="style" value="clouds.jpg" />
-        <label for="dewey">Clouds</label>
-    </div>
-    <div>
-        <input type="radio" class="load" name="style" value="seaport.jpg" />
-        <label for="louie">Seaport</label>
-    </div>
-    <img id="style-img" src="style_images/zigzag.jpg">
+    <img id="style-img">
     <button id="startstyle">Start style transfer</button>
     <canvas id="stylized-img"></canvas>
 

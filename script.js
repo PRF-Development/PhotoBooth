@@ -130,3 +130,7 @@ async function startStyling() {
   //   bottleneck.dispose(); // keep this around
   stylized.dispose();
 }
+
+function load_style_image(src) {
+  styleImg.src = src;
+}
